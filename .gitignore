@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Model files
+business_entity_resolution/models/*.pkl
+*.pkl
+
+# Dataset files
+dataset/**/*.tsv
+*.tsv
+
+# Generated output
+output/*.tsv
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Submission archives
+*.zip
+*.tar.gz
