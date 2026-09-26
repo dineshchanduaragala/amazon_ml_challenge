@@ -3,7 +3,6 @@ Configuration module for Business Entity Resolution pipeline.
 Defines file paths, hyperparameters, preprocessing constants, and model configuration.
 """
 
-import os
 from pathlib import Path
 
 # Base Directory Paths
@@ -11,9 +10,8 @@ SRC_DIR = Path(__file__).resolve().parent
 PROJECT_ROOT = SRC_DIR.parent
 WORKSPACE_ROOT = PROJECT_ROOT.parent
 
-# Default dataset search paths (checks multiple common locations)
+# Default dataset search paths
 POSSIBLE_DATA_DIRS = [
-    WORKSPACE_ROOT / "6ab10eb3b23ba_student_resource" / "student_resource" / "dataset",
     WORKSPACE_ROOT / "dataset",
     PROJECT_ROOT / "dataset",
     Path("dataset"),
@@ -33,13 +31,13 @@ MODEL_FILENAME = "business_matcher.pkl"
 
 # Pipeline Hyperparameters
 RANDOM_STATE = 42
-MAX_CANDIDATES_PER_S1 = 30          # Maximum number of candidates retained per S1 query
-TFIDF_TOP_K = 15                    # Top-K candidate retrieval via character 3-gram TF-IDF
-DEFAULT_DECISION_THRESHOLD = 0.65   # Default probability threshold for F0.5-optimized matching
-BATCH_SIZE_FEATURES = 100000        # Chunk size for vector feature extraction
-INFERENCE_CHUNK_SIZE = 50000        # Chunk size for streaming test inference
+MAX_CANDIDATES_PER_S1 = 30
+TFIDF_TOP_K = 15
+DEFAULT_DECISION_THRESHOLD = 0.65
+BATCH_SIZE_FEATURES = 100000
+INFERENCE_CHUNK_SIZE = 50000
 
-# Comprehensive Legal Entity Suffixes to normalize and strip for core business name extraction
+# Legal Entity Suffixes to normalize and strip for core business name extraction
 LEGAL_SUFFIXES = {
     "inc", "inc.", "incorporated",
     "corp", "corp.", "corporation",
@@ -57,7 +55,7 @@ LEGAL_SUFFIXES = {
     "center", "centre", "ventures", "partners"
 }
 
-# Common Street and Address Abbreviations for standardization
+# Street and Address Abbreviations for standardization
 ADDRESS_ABBREVIATIONS = {
     "st": "street",
     "st.": "street",
